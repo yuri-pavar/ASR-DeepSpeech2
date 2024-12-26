@@ -71,7 +71,7 @@ class CTCTextEncoder:
                         for line in f_upper:
                             f_lower.write(line.lower())
             print('Converted language model file to lowercase.')
-            if not os.path.exists(lm_gzip_path):
+            if not os.path.exists(f'{self.vocab_name}.txt'):
                 # vocab download
                 lm_vocab_path = wget.download(f'http://www.openslr.org/resources/11/{self.vocab_name}.txt')
             # load unigram list
