@@ -3,7 +3,7 @@ train:
   part: "dev-clean"
   # max_audio_length: 20.0
   # max_text_length: 200
-  limit: 10 # if not None, limit the total number of elements in the dataset to 'limit' elements.
+  limit: 64 # if not None, limit the total number of elements in the dataset to 'limit' elements.
   max_audio_length: null
   max_text_length: null
   # limit: null
@@ -15,7 +15,7 @@ val:
   part: "dev-clean"
   # max_audio_length: 20.0
   # max_text_length: 200
-  limit: 10
+  limit: 64
   max_audio_length: null
   max_text_length: null
   # limit: null

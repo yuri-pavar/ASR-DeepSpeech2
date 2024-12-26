@@ -1,8 +1,9 @@
 train:
   _target_: src.datasets.librispeech_kaggle.LibrispeechDatasetKaggle
-  part: "train-clean-360"
+  part: "train-clean-100"
   max_audio_length: null
   max_text_length: null
+  limit: 64
   instance_transforms: ${transforms.instance_transforms.train}
 
 val:
@@ -10,4 +11,5 @@ val:
   part: test-clean"
   max_audio_length: null
   max_text_length: null
+  limit: 64
   instance_transforms: ${transforms.instance_transforms.inference}
