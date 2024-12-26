@@ -7,7 +7,7 @@ train:
 
 val:
   _target_: src.datasets.librispeech_kaggle.LibrispeechDatasetKaggle
-  part: test-clean"
+  part: "test-clean"
   max_audio_length: null
   max_text_length: null
   instance_transforms: ${transforms.instance_transforms.inference}
