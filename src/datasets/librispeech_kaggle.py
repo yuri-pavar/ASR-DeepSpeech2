@@ -23,7 +23,7 @@ URL_LINKS = {
 }
 
 
-class LibrispeechDataset(BaseDataset):
+class LibrispeechDatasetKaggle(BaseDataset):
     def __init__(self, part, data_dir=None, *args, **kwargs):
         assert part in URL_LINKS or part == "train_all"
 
