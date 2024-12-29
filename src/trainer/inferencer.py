@@ -143,23 +143,24 @@ class Inferencer(BaseTrainer):
             # clone because of
             # https://github.com/pytorch/pytorch/issues/1995
             logits = batch["logits"][i].clone()
-            label = batch["labels"][i].clone()
-            pred_label = logits.argmax(dim=-1)
+            # label = batch["labels"][i].clone()
+            label = batch["text"][i]
+            # pred_label = logits.argmax(dim=-1)
 
-            # log_probs = batch["log_probs"][i].clone()
-            # length = batch["log_probs_length"][i].clone()
+            log_probs = batch["log_probs"][i].clone()
+            length = batch["log_probs_length"][i].clone()
 
-            # logits_cpu = logits.detach().cpu().numpy()
-            # log_probs_cpu = log_probs.detach().cpu().numpy()
-            # pred_label = self.text_encoder.ctc_beam_search(log_probs_cpu[:length], 3)
-            # pred_lm = self.text_encoder.lm_ctc_beam_search(logits_cpu[:length], 100)
+            logits_cpu = logits.detach().cpu().numpy()
+            log_probs_cpu = log_probs.detach().cpu().numpy()
+            pred_label = self.text_encoder.ctc_beam_search(log_probs_cpu[:length], 3)
+            pred_lm = self.text_encoder.lm_ctc_beam_search(logits_cpu[:length], 100)
 
             output_id = current_id + i
 
             output = {
                 "pred_label": pred_label,
                 "label": label,
-                # ,"pred_lm": pred_lm
+                "pred_lm": pred_lm
             }
 
             if self.save_path is not None:
