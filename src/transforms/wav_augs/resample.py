@@ -2,7 +2,7 @@ import torchaudio
 from torch import Tensor, nn
 
 
-class SpeedChange(nn.Module):
+class Resample(nn.Module):
     def __init__(self, speed_factor: float = 1.0, sample_rate: int = 16000):
         super().__init__()
         self.speed_factor = speed_factor
