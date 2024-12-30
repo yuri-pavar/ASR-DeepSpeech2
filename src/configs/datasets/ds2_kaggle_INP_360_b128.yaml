@@ -1,7 +1,6 @@
 train:
   _target_: src.datasets.librispeech_kaggle_inp.LibrispeechDatasetKaggleInp
-  # part: "train-clean-360"
-  part: "test-clean"
+  part: "train-clean-360"
   max_audio_length: null
   max_text_length: null
   instance_transforms: ${transforms.instance_transforms.train}
