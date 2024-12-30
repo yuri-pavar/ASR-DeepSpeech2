@@ -31,7 +31,7 @@ class LibrispeechDatasetKaggleInp(BaseDataset):
         if data_dir is None:
             data_dir = ROOT_PATH / part / "LibriSpeech"
             data_dir_inp = ROOT_PATH_INP / part / "LibriSpeech"
-            # data_dir.mkdir(exist_ok=True, parents=True)
+            data_dir_inp.mkdir(exist_ok=True, parents=True)
         self._data_dir = data_dir
         self._data_dir_inp = data_dir_inp
         if part == "train_all":
