@@ -64,9 +64,11 @@ class LibrispeechDatasetKaggleInp(BaseDataset):
         # index_path = self._data_dir / f"{part}_index.json"
         index_path = self._data_dir_inp / f"{part}_index.json"
         if index_path.exists():
+            print('---1===')
             with index_path.open() as f:
                 index = json.load(f)
         else:
+            print('---2===')
             index = self._create_index(part)
             with index_path.open("w") as f:
                 json.dump(index, f, indent=2)
