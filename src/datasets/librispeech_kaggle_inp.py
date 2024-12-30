@@ -11,6 +11,7 @@ from src.datasets.base_dataset import BaseDataset
 
 # FOR KAGGLE
 ROOT_PATH = Path("/kaggle/input/librispeech-asr-corpus")  
+ROOT_PATH_INP = Path("/kaggle/working/ASR-DeepSpeech2")  
 
 URL_LINKS = {
     "dev-clean": "https://www.openslr.org/resources/12/dev-clean.tar.gz",
@@ -29,8 +30,10 @@ class LibrispeechDatasetKaggleInp(BaseDataset):
 
         if data_dir is None:
             data_dir = ROOT_PATH / part / "LibriSpeech"
+            data_dir_inp = ROOT_PATH_INP / part / "LibriSpeech"
             # data_dir.mkdir(exist_ok=True, parents=True)
         self._data_dir = data_dir
+        self._data_dir_inp = data_dir_inp
         if part == "train_all":
             index = sum(
                 [
@@ -58,7 +61,8 @@ class LibrispeechDatasetKaggleInp(BaseDataset):
         shutil.rmtree(str(self._data_dir / "LibriSpeech"))
 
     def _get_or_load_index(self, part):
-        index_path = self._data_dir / f"{part}_index.json"
+        # index_path = self._data_dir / f"{part}_index.json"
+        index_path = self._data_dir_inp / f"{part}_index.json"
         if index_path.exists():
             with index_path.open() as f:
                 index = json.load(f)
