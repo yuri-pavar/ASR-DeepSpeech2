@@ -7,16 +7,16 @@ train:
     transforms:
       - _target_: src.transforms.wav_augs.Gain
       - _target_: src.transforms.wav_augs.PitchShift
-      sample_rate: 16000
-      min_transpose_semitones: -2
-      max_transpose_semitones: 2
+        sample_rate: 16000
+        min_transpose_semitones: -2
+        max_transpose_semitones: 2
       - _target_: src.transforms.wav_augs.ColoredNoise
-      sample_rate: 16000
-      min_snr_in_db: 5
-      max_snr_in_db: 15
+        sample_rate: 16000
+        min_snr_in_db: 5
+        max_snr_in_db: 15
       - _target_: src.transforms.wav_augs.Resample
-      sample_rate: 16000
-      speed_factor: 0.8
+        sample_rate: 16000
+        speed_factor: 0.8
 inference:
   get_spectrogram:
     _target_: torchaudio.transforms.MelSpectrogram
