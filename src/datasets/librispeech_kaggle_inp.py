@@ -10,7 +10,8 @@ from tqdm import tqdm
 from src.datasets.base_dataset import BaseDataset
 
 # FOR KAGGLE
-ROOT_PATH = Path("/kaggle/input/librispeech-asr-corpus")  
+# ROOT_PATH = Path("/kaggle/input/librispeech-asr-corpus") 
+ROOT_PATH = Path("/kaggle/input/librispeech")  
 ROOT_PATH_INP = Path("/kaggle/working/ASR-DeepSpeech2")  
 
 URL_LINKS = {
