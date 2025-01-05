@@ -1,0 +1,20 @@
+defaults:
+  - model: deepspeech2
+  - metrics: argmax_bs_lm
+  - datasets: inference_test_INP
+  - dataloader: kaggle
+  - transforms: inference
+  - _self_
+
+text_encoder:
+  _target_: src.text_encoder.CTCTextEncoder
+  use_lm: True
+  lm_name: 3-gram.pruned.1e-7
+  vocab_name: librispeech-vocab
+
+inferencer:
+  device_tensors: [ "spectrogram", "text_encoded" ] # which tensors should be on device (ex. GPU)
+  device: auto # device name or "auto"
+  save_path: "inference_other" # any name here, can be a dataset name
+  seed: 42
+  from_pretrained: "bmodel2.pth" # path to the pretrained model
