@@ -15,6 +15,7 @@
 ### 1. Обучение train-clean-360
 
 Время: 07:04 ч = 2550 итераций = 17 эпох
+
 Экперимент CometML: ds2_train360
 
 
@@ -62,7 +63,8 @@ python3 train.py -cn=ds2_kaggle_INP_360_new_mlr_l200.yaml
 ### 2. Дообучение train-other-500
 
 Время: 07:04 ч + ~ 6 ч = 2550 итераций  + х итераций = 17 эпох + 14 эпох
-Экперимент CometML: ds2_train360
+
+Экперимент CometML: ds2_train360 (есть только первоначальные логи, дообучение с помощью resume_from не логирует дообучение)
 
 Инструкция для выполнения на kaggle:
 
@@ -124,6 +126,7 @@ python3 train.py -cn=ds2_kaggle_INP_360_new_mlr_l200_augs_ft.yaml
 ### 3. Обучение train-other-500
 
 Время: 05:40 ч = 1950 итераций = 13 эпох
+
 Экперимент CometML: ds2_train500
 
 
