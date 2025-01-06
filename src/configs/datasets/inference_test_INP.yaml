@@ -1,4 +1,4 @@
 test:
   _target_: src.datasets.LibrispeechDatasetKaggleInp
-  part: "dev-clean"
+  part: "test-clean"
   instance_transforms: ${transforms.instance_transforms.inference}
